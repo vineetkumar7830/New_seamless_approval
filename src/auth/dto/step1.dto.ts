@@ -3,8 +3,6 @@ import {
   IsNotEmpty,
   IsString,
   MinLength,
-  IsBoolean,
-  IsOptional,
 } from 'class-validator';
 
 export class Step1Dto {
@@ -18,22 +16,10 @@ export class Step1Dto {
 
   @IsNotEmpty()
   @IsString()
-  @MinLength(6)
+  @MinLength(8, { message: 'Password must be at least 8 characters' })
   password: string;
 
   @IsNotEmpty()
   @IsString()
   confirm_password: string;
-
-  @IsOptional()
-  @IsBoolean()
-  terms_accepted?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  privacy_accepted?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  communication_accepted?: boolean;
 }

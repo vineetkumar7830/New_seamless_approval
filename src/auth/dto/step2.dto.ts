@@ -8,7 +8,7 @@ import {
 export class Step2Dto {
   @IsNotEmpty()
   @IsString()
-  unique_id: string; // From step 1
+  unique_id: string;
 
   @IsOptional()
   @IsString()

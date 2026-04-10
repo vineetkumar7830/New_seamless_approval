@@ -18,10 +18,10 @@ export class Company {
 
   @Prop({ required: true, trim: true })
   name: string;
-
+  
   @Prop({ required: true, unique: true, lowercase: true, trim: true })
   email: string;
-
+  
   @Prop({ required: true })
   password: string;
 
@@ -86,9 +86,6 @@ export class Company {
   ein: string;
 
   @Prop({ type: Date })
-  trial_start: Date;
-
-  @Prop({ type: Date })
   trial_end: Date;
 
   @Prop({ trim: true })
@@ -96,6 +93,12 @@ export class Company {
 
   @Prop({ type: Date })
   email_otp_expires?: Date;
+
+  @Prop({ trim: true })
+  phone_otp?: string;
+
+  @Prop({ type: Date })
+  phone_otp_expires?: Date;
 
   @Prop({
     type: String,

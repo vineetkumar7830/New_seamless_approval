@@ -1,9 +1,21 @@
-import { IsEmail, IsOptional, IsString, Matches } from 'class-validator';
+import { IsEmail, IsOptional, IsString, IsBoolean, IsObject, IsIn } from 'class-validator';
 
 export class UpdateCustomerDto {
   @IsOptional()
   @IsString()
-  name?: string;
+  payeeName?: string;
+
+  @IsOptional()
+  @IsString()
+  firstName?: string;
+
+  @IsOptional()
+  @IsString()
+  lastName?: string;
+
+  @IsOptional()
+  @IsString()
+  nickName?: string;
 
   @IsOptional()
   @IsEmail()
@@ -11,14 +23,36 @@ export class UpdateCustomerDto {
 
   @IsOptional()
   @IsString()
-  @Matches(/^[+]?[\d\s\-()]{7,15}$/, {
-    message: 'phone must be a valid phone number',
-  })
   phone?: string;
 
   @IsOptional()
   @IsString()
-  address?: string;
+  payeeId?: string;
+
+  @IsOptional()
+  @IsString()
+  entityType?: string;
+
+  @IsOptional()
+  @IsString()
+  companyName?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  requestBankDetails?: boolean;
+
+  @IsOptional()
+  @IsString()
+  @IsIn(['customer', 'vendor', 'employee'])
+  payeeType?: string;
+
+  @IsOptional()
+  @IsString()
+  addressLine1?: string;
+
+  @IsOptional()
+  @IsString()
+  addressLine2?: string;
 
   @IsOptional()
   @IsString()
@@ -26,5 +60,27 @@ export class UpdateCustomerDto {
 
   @IsOptional()
   @IsString()
-  notes?: string;
+  state?: string;
+
+  @IsOptional()
+  @IsString()
+  country?: string;
+
+  @IsOptional()
+  @IsString()
+  zip?: string;
+
+  @IsOptional()
+  @IsObject()
+  bankDetails?: {
+    holderName?: string;
+    routingNumber?: string;
+    accountNumber?: string;
+    accountType?: string;
+    addWireInfo?: boolean;
+  };
+
+  @IsOptional()
+  @IsString()
+  status?: string;
 }

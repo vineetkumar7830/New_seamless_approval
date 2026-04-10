@@ -2,13 +2,13 @@ import {
   IsNotEmpty,
   IsString,
   IsOptional,
-  IsDateString,
+  IsBoolean,
 } from 'class-validator';
 
 export class Step4Dto {
   @IsNotEmpty()
   @IsString()
-  unique_id: string; // From step 1
+  unique_id: string;
 
   @IsOptional()
   @IsString()
@@ -23,7 +23,7 @@ export class Step4Dto {
   dba?: string;
 
   @IsOptional()
-  @IsDateString()
+  @IsString()
   formation_date?: string;
 
   @IsOptional()
@@ -33,4 +33,16 @@ export class Step4Dto {
   @IsOptional()
   @IsString()
   ein?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  terms_accepted?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  privacy_accepted?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  communication_accepted?: boolean;
 }

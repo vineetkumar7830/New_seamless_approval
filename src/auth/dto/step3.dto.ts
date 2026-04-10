@@ -7,7 +7,7 @@ import {
 export class Step3Dto {
   @IsNotEmpty()
   @IsString()
-  unique_id: string; // From step 1
+  unique_id: string;
 
   @IsOptional()
   @IsString()
